@@ -169,7 +169,7 @@
 <div class="ctaBox">
 <div><div class="kicker" style="color:#80f0e9">لنرسم سير عملك</div><h2>أخبرنا أين تفقد شركتك الوقت أو التحكم أو الرؤية.</h2><p>شارك النظام الحالي وعدد الفروع والمستخدمين والموديلات ومتطلبات الامتثال والتكاملات. نحول ذلك إلى خارطة طريق عملية لـ Odoo والسحابة والحضور الرقمي.</p>
 <p style="font-size:12px"><a href="tel:+966534553453">+966 53 455 3453</a> &nbsp;•&nbsp; <a href="tel:+966507302113">+966 50 730 2113</a><br><a href="tel:+917840059134">+91 78400 59134</a><br><a href="mailto:info@itdelhi.in">info@itdelhi.in</a> &nbsp;•&nbsp; <a href="mailto:faizal@itdelhi.in">faizal@itdelhi.in</a></p></div>
-<form class="form" action="https://formsubmit.co/info@itdelhi.in" method="POST">
+<form class="form" id="consultationForm" action="https://formsubmit.co/info@itdelhi.in" method="POST">
 <input type="hidden" name="_subject" value="New Website Consultation Request - Faizal Infotech">
 <input type="hidden" name="_cc" value="faizal@itdelhi.in">
 <input type="hidden" name="_template" value="table">
@@ -184,8 +184,8 @@
 <select required name="Service"><option value="" disabled selected>الخدمة المطلوبة</option><option>Odoo ERP</option><option>ZATCA / الفوترة الإلكترونية</option><option>Cloud / DevOps</option><option>موقع / متجر</option><option>SEO</option><option>البريد / الاستضافة</option></select>
 <textarea required name="Project Requirement" placeholder="النظام الحالي والفروع والمستخدمون ومتطلبات المشروع"></textarea>
 <label style="display:flex;gap:8px;align-items:flex-start;font-size:10px;margin:3px 0 10px;color:#f1e9f3"><input required type="checkbox" name="Consent" value="Yes" style="width:auto;margin-top:3px"> أوافق على التواصل معي بخصوص هذا الطلب.</label>
-<button class="btn teal" type="submit">إرسال طلب الاستشارة ←</button>
-<small>بعد الإرسال سنستلم تفاصيل الطلب عبر البريد الإلكتروني.</small>
+<button class="btn teal" id="consultSubmit" type="submit">إرسال طلب الاستشارة ←</button>
+<small id="consultNote">نموذج مجاني بالكامل • لا توجد رسوم. يلزم تأكيد التفعيل مرة واحدة من بريد info@itdelhi.in.</small>
 </form>
 </div></div></section>
 
@@ -200,4 +200,17 @@
 </div></footer>
 
 <div class="quick"><a class="wa" href="https://wa.me/966534553453" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a><a class="mail" href="mailto:info@itdelhi.in" aria-label="Email">@</a></div>
-</body></html>
+<script>
+(function(){
+ const form=document.getElementById('consultationForm');
+ const btn=document.getElementById('consultSubmit');
+ const note=document.getElementById('consultNote');
+ if(!form||!btn)return;
+ form.addEventListener('submit',function(){
+   btn.disabled=true;
+   btn.textContent="جارٍ إرسال الطلب...";
+   if(note) note.textContent="يتم الآن إرسال الطلب عبر خدمة مجانية إلى بريد الأعمال.";
+   setTimeout(function(){btn.disabled=false;btn.textContent="إرسال طلب الاستشارة ←";},8000);
+ });
+})();
+</script></body></html>
