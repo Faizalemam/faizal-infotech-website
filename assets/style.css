@@ -49,7 +49,7 @@ html[dir=rtl] body{font-family:'Noto Kufi Arabic',Tahoma,Arial,sans-serif}.rtl .
 .moduleText small{display:block;font-size:9px;color:var(--muted);margin-top:4px;line-height:1.35}
 @keyframes moduleScrollLeft{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 6px))}}
 @keyframes moduleScrollRight{from{transform:translateX(calc(-50% - 6px))}to{transform:translateX(0)}}
-@media (prefers-reduced-motion:reduce){.moduleTrack{animation-play-state:paused}}
+
 
 @media(max-width:1020px){.navlinks{display:none}.heroGrid,.compliance,.cloud,.seo,.ctaBox{grid-template-columns:1fr}.heroVisual{min-height:455px}.industries{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}.regions{grid-template-columns:repeat(3,1fr)}.contactStrip{grid-template-columns:repeat(2,1fr)}.card{grid-column:span 6}.footerGrid{grid-template-columns:1.2fr 1fr 1fr}}
 @media(max-width:680px){.container{width:min(var(--max),calc(100% - 22px))}.topbar .container{padding:7px 0}.topitems span:nth-child(n+2),.topitems a:nth-child(n+3){display:none}nav{height:66px}.brand small{display:none}.navactions .primary{display:none}.hero{padding:54px 0 46px}.hero h1{font-size:42px}.lead{font-size:15px}.heroVisual{min-height:380px}.erpWindow{padding:12px}.erpbody{grid-template-columns:58px 1fr}.tiles{grid-template-columns:1fr}.tile:nth-child(n+2){display:none}.chart{height:115px}.fc1{left:0;bottom:10px}.fc2{display:none}.sectionHead{display:block}section{padding:60px 0}.grid{display:block}.card{margin-bottom:10px}.industries,.process,.seoTiles,.regions,.contactStrip{grid-template-columns:1fr}.compPanel h2{font-size:31px}.footerGrid{grid-template-columns:1fr 1fr}.footerGrid>div:first-child{grid-column:1/-1}.ctaBox{padding:27px}.map{min-height:340px}.n3{left:28%}.n6{left:28%}}
@@ -113,4 +113,36 @@ html[dir=rtl] body{font-family:'Noto Kufi Arabic',Tahoma,Arial,sans-serif}.rtl .
     min-width:44px!important;
     flex-basis:44px!important;
   }
+}
+
+/* Force continuous Odoo module movement */
+#odoo .moduleLane{overflow:hidden!important;position:relative!important}
+#odoo .moduleTrack{
+  display:flex!important;
+  flex-wrap:nowrap!important;
+  width:max-content!important;
+  gap:14px!important;
+  transform:translate3d(0,0,0);
+  animation-name:odooMarqueeLeft!important;
+  animation-duration:28s!important;
+  animation-timing-function:linear!important;
+  animation-iteration-count:infinite!important;
+  animation-play-state:running!important;
+  animation-fill-mode:none!important;
+  will-change:transform!important;
+}
+#odoo .moduleLane.reverse .moduleTrack{
+  animation-name:odooMarqueeRight!important;
+  animation-duration:32s!important;
+}
+#odoo .moduleLane:hover .moduleTrack{
+  animation-play-state:paused!important;
+}
+@keyframes odooMarqueeLeft{
+  0%{transform:translate3d(0,0,0)}
+  100%{transform:translate3d(calc(-50% - 7px),0,0)}
+}
+@keyframes odooMarqueeRight{
+  0%{transform:translate3d(calc(-50% - 7px),0,0)}
+  100%{transform:translate3d(0,0,0)}
 }
