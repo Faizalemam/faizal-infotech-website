@@ -66,3 +66,51 @@ html[dir=rtl] body{font-family:'Noto Kufi Arabic',Tahoma,Arial,sans-serif}.rtl .
   #odoo .modulePill{flex-basis:162px!important;width:162px!important;min-width:162px!important;height:82px!important;padding:10px 12px!important}
   #odoo .moduleMarquee:before,#odoo .moduleMarquee:after{width:38px!important}
 }
+
+/* Official Odoo app icon treatment */
+#odoo .moduleBadge.official{
+  background:transparent!important;
+  border:0!important;
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+  flex:0 0 48px!important;
+  overflow:hidden!important;
+  border-radius:12px!important;
+  box-shadow:0 6px 16px rgba(62,40,72,.10)!important;
+}
+#odoo .moduleBadge.official img{
+  display:block!important;
+  width:48px!important;
+  height:48px!important;
+  object-fit:cover!important;
+  border-radius:12px!important;
+}
+#odoo .modulePill{
+  flex-basis:205px!important;
+  width:205px!important;
+  min-width:205px!important;
+  height:94px!important;
+}
+#odoo .moduleText strong{
+  font-size:13px!important;
+  font-weight:800!important;
+}
+#odoo .moduleText small{
+  font-size:9.5px!important;
+}
+@media(max-width:680px){
+  #odoo .modulePill{
+    flex-basis:180px!important;
+    width:180px!important;
+    min-width:180px!important;
+    height:86px!important;
+  }
+  #odoo .moduleBadge.official,
+  #odoo .moduleBadge.official img{
+    width:44px!important;
+    height:44px!important;
+    min-width:44px!important;
+    flex-basis:44px!important;
+  }
+}
