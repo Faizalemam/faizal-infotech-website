@@ -32,3 +32,6 @@ Premium bilingual static website for **English + Arabic**, prepared for GitHub P
 - Add real case studies and project portfolio.
 - Configure Search Console, analytics and final sitemap after the public URL/domain is known.
 - Revalidate current ZATCA/GST/privacy requirements before publishing compliance claims.
+
+
+Pages publishing source: `main` → `/(root)`.
