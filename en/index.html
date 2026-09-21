@@ -170,7 +170,7 @@
 <div><div class="kicker" style="color:#80f0e9">Let’s map your workflow</div><h2>Tell us where your business is losing time, control or visibility.</h2><p>Share your current ERP, number of branches/users, key modules, compliance needs and integrations. We can turn that into a practical Odoo, cloud and digital roadmap.</p>
 <div class="tags"><span class="tag" style="background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18);color:#fff">Saudi Arabia</span><span class="tag" style="background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18);color:#fff">India</span><span class="tag" style="background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.18);color:#fff">Remote Worldwide</span></div>
 <p style="font-size:12px"><a href="tel:+966534553453">+966 53 455 3453</a> &nbsp;•&nbsp; <a href="tel:+966507302113">+966 50 730 2113</a><br><a href="tel:+917840059134">+91 78400 59134</a><br><a href="mailto:info@itdelhi.in">info@itdelhi.in</a> &nbsp;•&nbsp; <a href="mailto:faizal@itdelhi.in">faizal@itdelhi.in</a></p></div>
-<form class="form" action="https://formsubmit.co/info@itdelhi.in" method="POST">
+<form class="form" id="consultationForm" action="https://formsubmit.co/info@itdelhi.in" method="POST">
 <input type="hidden" name="_subject" value="New Website Consultation Request - Faizal Infotech">
 <input type="hidden" name="_cc" value="faizal@itdelhi.in">
 <input type="hidden" name="_template" value="table">
@@ -185,8 +185,8 @@
 <select required name="Service"><option value="" disabled selected>Required service</option><option>Odoo ERP</option><option>ZATCA / E-Invoicing</option><option>Cloud / DevOps</option><option>Website / eCommerce</option><option>SEO</option><option>Email / Hosting</option></select>
 <textarea required name="Project Requirement" placeholder="Current system, branches, users and project requirement"></textarea>
 <label style="display:flex;gap:8px;align-items:flex-start;font-size:10px;margin:3px 0 10px;color:#f1e9f3"><input required type="checkbox" name="Consent" value="Yes" style="width:auto;margin-top:3px"> I agree to be contacted about this enquiry.</label>
-<button class="btn teal" type="submit">Request Consultation →</button>
-<small>Your enquiry will be delivered to our business email.</small>
+<button class="btn teal" id="consultSubmit" type="submit">Request Consultation →</button>
+<small id="consultNote">Free enquiry form • No payment required. First-time activation must be confirmed once from info@itdelhi.in.</small>
 </form>
 </div></div></section>
 
@@ -201,4 +201,17 @@
 </div></footer>
 
 <div class="quick"><a class="wa" href="https://wa.me/966534553453" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a><a class="mail" href="mailto:info@itdelhi.in" aria-label="Email">@</a></div>
-</body></html>
+<script>
+(function(){
+ const form=document.getElementById('consultationForm');
+ const btn=document.getElementById('consultSubmit');
+ const note=document.getElementById('consultNote');
+ if(!form||!btn)return;
+ form.addEventListener('submit',function(){
+   btn.disabled=true;
+   btn.textContent="Sending request...";
+   if(note) note.textContent="Submitting through the free email form service...";
+   setTimeout(function(){btn.disabled=false;btn.textContent="Request Consultation →";},8000);
+ });
+})();
+</script></body></html>
